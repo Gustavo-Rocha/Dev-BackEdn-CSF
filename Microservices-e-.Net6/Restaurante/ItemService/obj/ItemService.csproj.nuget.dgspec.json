@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniel.mastub\\aluramicro\\ItemService\\ItemService.csproj": {}
+    "E:\\BackEndCSF\\Dev-BackEnd-CSF\\Microservices-e-.Net6\\Restaurante\\ItemService\\ItemService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniel.mastub\\aluramicro\\ItemService\\ItemService.csproj": {
+    "E:\\BackEndCSF\\Dev-BackEnd-CSF\\Microservices-e-.Net6\\Restaurante\\ItemService\\ItemService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel.mastub\\aluramicro\\ItemService\\ItemService.csproj",
+        "projectUniqueName": "E:\\BackEndCSF\\Dev-BackEnd-CSF\\Microservices-e-.Net6\\Restaurante\\ItemService\\ItemService.csproj",
         "projectName": "ItemService",
-        "projectPath": "C:\\Users\\daniel.mastub\\aluramicro\\ItemService\\ItemService.csproj",
-        "packagesPath": "C:\\Users\\daniel.mastub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel.mastub\\aluramicro\\ItemService\\obj\\",
+        "projectPath": "E:\\BackEndCSF\\Dev-BackEnd-CSF\\Microservices-e-.Net6\\Restaurante\\ItemService\\ItemService.csproj",
+        "packagesPath": "C:\\Users\\Neco\\.nuget\\packages\\",
+        "outputPath": "E:\\BackEndCSF\\Dev-BackEnd-CSF\\Microservices-e-.Net6\\Restaurante\\ItemService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\daniel.mastub\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Neco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +47,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -85,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
