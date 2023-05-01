@@ -15,15 +15,16 @@ public class RestauranteController : ControllerBase
     private readonly IRestauranteRepository _repository;
     private readonly IMapper _mapper;
     private IItemServiceHttpClient _itemServiceHttpClient;
-    private IRabbitMqClient _rabbitMqClient;
+    private readonly IRabbitMqClient _rabbitMqClient;
 
     public RestauranteController(
         IRestauranteRepository repository,
-        IMapper mapper, IItemServiceHttpClient itemServiceHttpClient)
+        IMapper mapper, IItemServiceHttpClient itemServiceHttpClient, IRabbitMqClient rabbitMqClient)
     {
         _repository = repository;
         _mapper = mapper;
         _itemServiceHttpClient = itemServiceHttpClient;
+        _rabbitMqClient = rabbitMqClient;
     }
 
     [HttpGet]
@@ -59,7 +60,6 @@ public class RestauranteController : ControllerBase
         _itemServiceHttpClient.EnviaRestauranteParaItemService(restauranteReadDto);
 
         _rabbitMqClient.PublicaRestaurante(restauranteReadDto);
-
 
         return CreatedAtRoute(nameof(GetRestauranteById), new { restauranteReadDto.Id }, restauranteReadDto);
     }
