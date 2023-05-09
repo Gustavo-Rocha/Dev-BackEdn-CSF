@@ -34,12 +34,17 @@ namespace UsuariosApi.Services
             {
                 try
                 {
-                    client.Connect(_configuration.GetValue<string>("EmailSettings:SmtpServer"),
-                        _configuration.GetValue<int>("EmailSettings:Port"), true);
+                    client.CheckCertificateRevocation = false;
                     client.AuthenticationMechanisms.Remove("XOUATH2");
+                    client.Connect(_configuration.GetValue<string>("EmailSettings:SmtpServer"),
+                        _configuration.GetValue<int>("EmailSettings:Port"), 
+                        MailKit.Security.SecureSocketOptions.StartTlsWhenAvailable);
+
                     client.Authenticate(_configuration.GetValue<string>("EmailSettings:From"),
                         _configuration.GetValue<string>("EmailSettings:Password"));
+                    
                     client.Send(mensagemDeEmail);
+                    
                 }
                 catch
                 {
