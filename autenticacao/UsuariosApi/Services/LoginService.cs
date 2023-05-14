@@ -11,10 +11,10 @@ namespace UsuariosApi.Services
 {
     public class LoginService
     {
-        private SignInManager<IdentityUser<int>> _signInManager;
+        private SignInManager<CustomIdentityUser> _signInManager;
         private TokenService _tokenService;
 
-        public LoginService(SignInManager<IdentityUser<int>> signInManager,
+        public LoginService(SignInManager<CustomIdentityUser> signInManager,
             TokenService tokenService)
         {
             _signInManager = signInManager;
@@ -32,7 +32,7 @@ namespace UsuariosApi.Services
                     .Users
                     .FirstOrDefault(usuario => 
                     usuario.NormalizedUserName == request.Username.ToUpper());
-                Token token = _tokenService.CreateToken(identityUser);
+                Token token = _tokenService.CreateToken(identityUser, _signInManager.UserManager.GetRolesAsync(identityUser).Result.FirstOrDefault());
                 return Result.Ok().WithSuccess(token.Value);
             }
             return Result.Fail("Login falhou");
@@ -41,7 +41,7 @@ namespace UsuariosApi.Services
         public Result ResetaSenhaUsuario(EfetuaResetRequest request)
         {
             
-            IdentityUser<int> identityUser = RecuperaUsuarioPorEmail(request.Email);
+            CustomIdentityUser identityUser = RecuperaUsuarioPorEmail(request.Email);
             if (identityUser != null)
                 {
                 var code = _signInManager.UserManager.ResetPasswordAsync(identityUser,request.Token,request.Password).Result;
@@ -54,7 +54,7 @@ namespace UsuariosApi.Services
 
         public Result SolicitarResetSenhaUsuario(SolicitaResetRequest request)
         {
-            IdentityUser<int> identityUser = _signInManager.UserManager.Users.FirstOrDefault(user => user.NormalizedEmail == request.Email.ToUpper());
+            CustomIdentityUser identityUser = _signInManager.UserManager.Users.FirstOrDefault(user => user.NormalizedEmail == request.Email.ToUpper());
 
             if(identityUser is not null)
             {
@@ -65,7 +65,7 @@ namespace UsuariosApi.Services
 
         }
 
-        private IdentityUser<int> RecuperaUsuarioPorEmail(string email) =>
+        private CustomIdentityUser RecuperaUsuarioPorEmail(string email) =>
             _signInManager.UserManager.Users.FirstOrDefault(usuario => usuario.NormalizedEmail == email);
     }
 }

@@ -23,9 +23,9 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastraUsuario(CreateUsuarioDto createDto)
+        public async Task<IActionResult> CadastraUsuario(CreateUsuarioDto createDto)
         {
-            Result resultado = _cadastroService.CadastraUsuario(createDto);
+            Result resultado = await _cadastroService.CadastraUsuario(createDto);
             if (resultado.IsFailed) return StatusCode(500);
             return Ok(resultado.Successes);
         }
