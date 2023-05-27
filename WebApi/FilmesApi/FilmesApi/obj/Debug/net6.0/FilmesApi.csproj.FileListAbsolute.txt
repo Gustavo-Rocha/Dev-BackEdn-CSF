@@ -40,3 +40,5 @@ E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\bin\Debug\net6.0\Micros
 E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\bin\Debug\net6.0\FilmesApi.xml
+E:\BackEndCSF\Dev-BackEnd-CSF\WebApi\FilmesApi\FilmesApi\obj\Debug\net6.0\FilmesApi.xml
