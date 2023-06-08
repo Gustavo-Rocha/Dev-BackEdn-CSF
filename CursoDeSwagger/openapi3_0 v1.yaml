@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info: 
+  title:  API de consultório
+  description: Irineu, você não sabe e nem eu
+  version: 0.0.1
+  termsOfService: https://www.google.com
+  contact:
+    name: Devs Support
+    email: fake@devs.com
+    url: https://alura.com.br
+  license:
+    name: GPL license
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+externalDocs:
+  description: documentacao burocrática
+  url: https://alura.com.br
+servers:
+- url: https://6096015d11f3f00174b29ba.mockapi.io/
+  description: url do servidor a ser requisitado
+paths:
+  /especialidades: 
+    get:
+      summary: Recupera todas as especialidades médicas
+      responses:
+        200:
+          description: sucesso 
+          content:
+            application/json:
+              schema:
+                 type: array
+                 items: 
+                   type: object
+                 properties: 
+                   id:
+                     type: integer
+                   description:
+                     type: string
+    post:     
+      summary: Cria uma Nova Especialidade
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                descricao:
+                  type: string
+      responses: 
+        201:
+          description: "Sucesso"
+          content: 
+            application/json:
+              schema:
+                 type: array
+                 items: 
+                   type: object
+                   properties: 
+                     id:
+                      type: integer
+                     descricao:
+                      type: string                        
+  /especialidades/{id}:
+    parameters: 
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    get: 
+      summary: Recupera uma entidade peo id
+      responses:
+        200:
+          description: sucesso 
+          content:
+            application/json:
+              schema:
+                 type: array
+                 items: 
+                   type: object
+                 properties: 
+                   id:
+                     type: integer
+                   description:
+                     type: string
+        404:
+          description: Especialidade nao encontrada
+          content:
+            application/json:
+              example: "not found"
+    put:
+      summary: Atualiza uma entidade pelo id
+      responses:
+        204:
+          description: sucesso 
+          content:
+            application/json:
+              schema:
+                 type: array
+                 items: 
+                   type: object
+                 properties: 
+                   id:
+                     type: integer
+                   description:
+                     type: string
+        404:
+          description: ID Para atualizar nao encontrado
+          content:
+            application/json:
+              example: "not found"
+    delete:
+      summary: Deleta uma entidade pelo id
+      responses:
+        204:
+          description: sucesso        
+        404:
+          description: ID Para Deletar nao encontrado
+          content:
+            application/json:
+              example: "not found"  
+      
+                                                
